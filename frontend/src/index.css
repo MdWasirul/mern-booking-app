@@ -1,0 +1,13 @@
+@import "tailwindcss";
+
+@layer components {
+
+
+    @media (min-width: 768px) {
+        .container {
+            padding-left: 15rem;
+            /* 👈 md breakpoint */
+            padding-right: 15rem;
+        }
+    }
+}
