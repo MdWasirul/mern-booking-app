@@ -3,7 +3,10 @@ import NotFound from "./components/NotFound";
 import Layout from "./layouts/Layout";
 import Register from "./Pages/Register";
 import SignIn from "./Pages/SignIn";
+import AddHotel from "./Pages/AddHotel";
+import { useAppContext } from "./contexts/AppContext";
 function App() {
+  const { isLoggedIn } = useAppContext();
   return (
     <Routes>
       <Route
@@ -30,6 +33,18 @@ function App() {
           </Layout>
         }
       />
+      {isLoggedIn && (
+        <>
+          <Route
+            path="/add-hotel" 
+            element={
+              <Layout>
+                <AddHotel />
+              </Layout>
+            }
+          />
+        </>
+      )}
       {/* Catch-all route for unmatched URLs */}
       <Route path="*" element={<NotFound />} />
     </Routes>

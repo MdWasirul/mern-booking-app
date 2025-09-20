@@ -26,7 +26,7 @@ test("should allow the  user to register", async ({ page }) => {
   ).toBeVisible();
   await page.locator("[name=firstName]").fill("test_firstName");
   await page.locator("[name=lastName]").fill("test_lastName");
-  await page.locator("[name=email]").fill("test@gmail.com");
+  await page.locator("[name=email]").fill("test123@gmail.com");
   await page.locator("[name=password]").fill("test@123");
   await page.locator("[name=confirmPassword]").fill("test@123");
   await page.getByRole("button", { name: "Register" }).click();

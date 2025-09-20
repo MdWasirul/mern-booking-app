@@ -1,0 +1,26 @@
+export const hotelTypes = [
+  "Luxury Hotel",
+  "Guest House",
+  "Conference Hotel",
+  "Transit Hotel",
+  "Luxury Villa",
+  "Cottage",
+  "Homestay",
+  "Farm Stay",
+  "Palace Hotel",
+  "Family Hotel",
+  "Golf Resort",
+  "Waterpark Resort",
+];
+export const hotelFacilities = [
+  "Free Wi-Fi",
+  "Swimming Pool",
+  "Fitness Center",
+  "Spa and Wellness Center",
+  "Restaurant",
+  "Bar/Lounge",
+  "24-Hour Front Desk",
+  "Room Service",
+  "Free Parking",
+  "Airport Shuttle",
+];
