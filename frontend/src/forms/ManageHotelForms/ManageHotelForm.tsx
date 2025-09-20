@@ -29,7 +29,6 @@ const ManageHotelForm = ({ onSave, isLoading }: Props) => {
 
   const onSubmit = handleSubmit((formDataJson: HotelFormData) => {
     //Create a new formData & call our API
-    console.log("JSON data from react-hook-form:", formDataJson);
     const formData = new FormData();
     formData.append("name", formDataJson.name);
     formData.append("city", formDataJson.city);
@@ -46,11 +45,7 @@ const ManageHotelForm = ({ onSave, isLoading }: Props) => {
     Array.from(formDataJson.imageFiles).forEach((imageFile) => {
       formData.append(`imageFiles`, imageFile);
     });
-    console.log("--- FormData contents being sent to API ---");
-    for (const [key, value] of formData.entries()) {
-      console.log(`${key}: ${value}`);
-    }
-    console.log("-----------------------------------------");
+
     onSave(formData);
   });
   return (

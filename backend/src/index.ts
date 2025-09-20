@@ -36,12 +36,7 @@ app.use("/api/my-hotels", myHotelRoutes);
 app.get("*", (req: Request, res: Response) => {
   res.sendFile(path.join(__dirname, "../../frontend/dist/index.html"));
 });
-// app.get("/api/test", async (req: Request, res: Response) => {
-//   res.json({ message: "hello from express endpoint!" });
-// });
-// app.get("/", async (req: Request, res: Response) => {
-//   res.send( "Hello This is HOme Page!" );
-// });
+
 
 app.listen(7000, () => {
   console.log("server Started at http://localhost:7000");

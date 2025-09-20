@@ -4,7 +4,7 @@ import multer from "multer";
 import cloudinary from "cloudinary";
 import Hotel, { HotelType } from "../models/my-hotel";
 import verifyToken from "../middleware/auth";
-import { body, validationResult } from "express-validator";
+import { body } from "express-validator";
 
 const storage = multer.memoryStorage();
 
@@ -39,8 +39,6 @@ router.post(
     try {
       const newHotel: HotelType = req.body;
       const imageFiles = req.files as Express.Multer.File[];
-      console.log("image fies=============", imageFiles);
-      // const newHotel: HotelType = req.body;
 
       //1.upload image to cloudinary
 
