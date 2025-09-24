@@ -1,7 +1,5 @@
-import mongoose from "mongoose";
-
 export type HotelType = {
-  _id?: mongoose.Types.ObjectId;
+  _id: string;
   userId: string;
   name: string;
   city: string;
