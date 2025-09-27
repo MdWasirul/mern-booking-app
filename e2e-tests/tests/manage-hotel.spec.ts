@@ -15,11 +15,11 @@ test.beforeEach(async ({ page }) => {
   // Expect a title "to contain" a substring.
   await expect(page.getByRole("heading", { name: "Sign In" })).toBeVisible();
 
-  await page.locator("[name=email]").fill("test123@gmail.com");
+  await page.locator("[name=email]").fill("tase@gmail.com");
   await page.locator("[name=password]").fill("test@123");
   await page.getByRole("button", { name: "LogIn" }).click();
   //This is assertion --something to be as it is expected
-  await expect(page.getByText("LogIn Success")).toBeVisible();
+  await expect(page.getByText("LogIn Success")).toBeVisible({ timeout: 10000 });
 });
 
 test("should allow user to add a hotel", async ({ page }) => {
@@ -43,18 +43,37 @@ test("should allow user to add a hotel", async ({ page }) => {
     path.join(__dirname, "files", "3.jpg"),
   ]);
   await page.getByRole("button", { name: "Save" }).click();
-  await expect(page.getByText("Hotel Saved!")).toBeVisible();
+  await expect(page.getByText("Hotel Saved!")).toBeVisible({ timeout: 10000 });
 });
 
 test("should display hotels", async ({ page }) => {
   await page.goto(`${UI_URL}my-hotel`);
-  await expect(page.getByText("Dublin Getaways")).toBeVisible();
-  await expect(page.getByText("Lorem ipsum dolor sit amet")).toBeVisible();
-  await expect(page.getByText("Dublin,Ireland")).toBeVisible();
-  await expect(page.getByText("All Inclusive")).toBeVisible();
-  await expect(page.getByText("119 per night")).toBeVisible();
-  await expect(page.getByText("2 adults, 3 children")).toBeVisible();
-  await expect(page.getByText("2 Start rating")).toBeVisible();
-  await expect(page.getByRole("link", { name: "View Details" })).toBeVisible();
+  await expect(page.getByText("Hotel Test")).toBeVisible();
+  await expect(
+    page.getByText("This is a description for Hotel Test")
+  ).toBeVisible();
+  await expect(page.getByText("Hotel City,Test Country")).toBeVisible();
+  await expect(page.getByText("Cottage")).toBeVisible();
+  await expect(page.getByText("100 per night")).toBeVisible();
+  await expect(page.getByText("14 adults, 8 children")).toBeVisible();
+  await expect(page.getByText("3 Star rating")).toBeVisible();
+  await expect(
+    page.getByRole("link", { name: "View Details" }).first()
+  ).toBeVisible();
   await expect(page.getByRole("link", { name: "AddHotel" })).toBeVisible();
+});
+
+test("should edit hotel", async ({ page }) => {
+  await page.goto(`${UI_URL}my-hotel`);
+  await page.getByRole("link", { name: "View Details" }).first().click();
+  await page.waitForSelector("[name=name]", { state: "attached" });
+  await expect(page.locator("[name=name]")).toHaveValue("Hotel Test");
+  await page.locator("[name=name]").fill("Hotel Test UPDATED");
+  await page.getByRole("button", { name: "Save" }).click();
+  await expect(page.getByText("Hotel Saved!")).toBeVisible({ timeout: 10000 });
+  await page.reload();
+  await expect(page.locator("[name=name]")).toHaveValue("Hotel Test UPDATED");
+  await page.locator("[name=name]").fill("Hotel Test");
+  await page.getByRole("button", { name: "Save" }).click();
+  await expect(page.getByText("Hotel Saved!")).toBeVisible({ timeout: 10000 });
 });

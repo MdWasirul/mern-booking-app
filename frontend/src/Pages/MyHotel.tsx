@@ -17,7 +17,7 @@ const MyHotel = () => {
     queryKey: ["fetchMyHotel"],
     queryFn: apiClient.fetchMyHotel,
   });
-  console.log(hotelData);
+  // console.log(hotelData);
   //Loading state
   if (isLoading) return <p className="text-gray-700 text-2xl">Loading...</p>;
   //Error state
@@ -71,7 +71,12 @@ const MyHotel = () => {
               </div>
             </div>
             <span className="flex justify-end">
-              <Link to={`/edit-hotel/${hotel._id}`} className=" flex font-bold text-xl bg-blue-700 text-white p-2 hover:bg-blue-700">View Details</Link>
+              <Link
+                to={`/edit-hotel/${hotel._id}`}
+                className=" flex font-bold text-xl bg-blue-700 text-white p-2 hover:bg-blue-700"
+              >
+                View Details
+              </Link>
             </span>
           </div>
         ))}
