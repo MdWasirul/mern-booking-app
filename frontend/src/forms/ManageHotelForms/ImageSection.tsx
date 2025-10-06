@@ -49,12 +49,12 @@ const ImageSection = () => {
           className="text-gray-700 cursor-pointer  "
           {...register("imageFiles", {
             validate: (imageFiles) => {
-              const totalLength =
-                imageFiles.length + existingImageUrls?.length || 0;
+              const totalLength = imageFiles.length + (existingImageUrls?.length ?? 0);
+
               if (totalLength === 0) {
                 return "At least One image should be required";
               }
-              if (totalLength > 5) {
+              if (totalLength > 6) {
                 return "Total length of images cannot  be more than 5";
               }
               return true;

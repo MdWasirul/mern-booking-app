@@ -5,9 +5,9 @@
 
     @media (min-width: 768px) {
         .container {
-            padding-left: 15rem;
+            padding-left: 10rem;
             /* 👈 md breakpoint */
-            padding-right: 15rem;
+            padding-right: 10rem;
         }
     }
 }

@@ -8,6 +8,7 @@ import userRoutes from "./routes/user";
 import authRoutes from "./routes/auth";
 import myHotelRoutes from "./routes/my-hotel";
 import { v2 as cloudinary } from "cloudinary";
+import hotelRoutes from "./routes/hotel";
 cloudinary.config({
   cloud_name: process.env.CLOUDINARY_CLOUD_NAME,
   api_key: process.env.CLOUDINARY_API_KEY,
@@ -35,6 +36,7 @@ app.use(express.static(path.join(__dirname, "../../frontend/dist")));
 app.use("/api/auth", authRoutes);
 app.use("/api/users", userRoutes);
 app.use("/api/my-hotels", myHotelRoutes);
+app.use("/api/hotels", hotelRoutes);
 
 // Catch-all route for frontend routing
 app.get("*", (req: Request, res: Response) => {
