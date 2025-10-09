@@ -15,14 +15,25 @@ test.beforeEach(async ({ page }) => {
   await expect(page.getByText("LogIn Success")).toBeVisible({ timeout: 10000 });
 });
 
+// test("should show hotel detail", async ({ page }) => {
+//   //   await page.goto(UI_URL);
+//   await page.getByPlaceholder("Where are you going?").fill("Hotel City");
+//   await page.getByRole("button", { name: "Search" }).click();
+//   await expect(page.getByText("Hotels found in Hotel City")).toBeVisible({
+//     timeout: 10000,
+//   });
+//   await expect(page.getByRole("link", { name: "Hotel Bihar" })).toBeVisible({
+//     timeout: 10000,
+//   });
+// });
+
 test("should show hotel detail", async ({ page }) => {
-  //   await page.goto(UI_URL);
+  await page.goto(UI_URL);
+
   await page.getByPlaceholder("Where are you going?").fill("Hotel City");
   await page.getByRole("button", { name: "Search" }).click();
-  await expect(page.getByText("Hotels found in Hotel City")).toBeVisible({
-    timeout: 10000,
-  });
-  await expect(page.getByRole("link", { name: "Hotel Bihar" })).toBeVisible({
-    timeout: 10000,
-  });
+
+  await page.getByText("Hotel Bihar").click();
+  await expect(page).toHaveURL(/detail/);
+  await expect(page.getByRole("button", { name: "Book now" })).toBeVisible();
 });

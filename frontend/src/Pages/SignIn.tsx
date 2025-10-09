@@ -1,5 +1,5 @@
 import { useForm } from "react-hook-form";
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import { useMutation, useQueryClient } from "@tanstack/react-query";
 import * as apiClient from "../api-client";
 import { useAppContext } from "../contexts/AppContext";
@@ -12,6 +12,7 @@ const SignIn = () => {
   const queryClient = useQueryClient();
   const { showToast } = useAppContext();
   const navigate = useNavigate();
+  const location = useLocation();
   const {
     register,
     handleSubmit,
@@ -25,7 +26,7 @@ const SignIn = () => {
       //2.navigate
       showToast({ message: "LogIn Success", type: "Success" });
       await queryClient.invalidateQueries({ queryKey: ["validateToken"] });
-      navigate("/");
+      navigate(location.state?.from?.pathname || "/");
     },
     onError: (error: Error) => {
       // Error Message shows

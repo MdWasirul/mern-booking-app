@@ -17,7 +17,7 @@ const Search = () => {
   const [selectedHotelTypes, setSelectedHotelTypes] = useState<string[]>([]);
   const [selectedPrice, setSelectedPrice] = useState<number | undefined>();
   const [sortOption, setSortOption] = useState<string>("");
-  console.log(search);
+  console.log("Search Hotel", search);
 
   const searchParams = {
     destination: search.destination,
@@ -36,7 +36,7 @@ const Search = () => {
     queryKey: ["searchHotels", searchParams],
     queryFn: () => apiClient.searchHotels(searchParams),
   });
-  console.log(searchParams);
+  console.log("Search Params", searchParams);
   const handleStarsChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     const starRating = event.target.value;
     setSelectedStars((prevStars) =>
