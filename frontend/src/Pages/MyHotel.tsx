@@ -17,7 +17,6 @@ const MyHotel = () => {
     queryKey: ["fetchMyHotel"],
     queryFn: apiClient.fetchMyHotel,
   });
-  // console.log(hotelData);
   //Loading state
   if (isLoading) return <p className="text-gray-700 text-2xl">Loading...</p>;
   //Error state

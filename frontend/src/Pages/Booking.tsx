@@ -44,9 +44,7 @@ const Booking = () => {
     queryKey: ["fetchCurrentUser"],
     queryFn: apiClient.fetchCurrentUser,
   });
-  // if (!currentUser) return;
-  // console.log("CurrentUser: ", currentUser);
-  // console.log(hotelId);
+  
   if (!hotel)
     return (
       <div className="text bg-green-400 font-bold">Hotel is Loading....</div>

@@ -76,8 +76,7 @@ router.post(
         userId: req.userId,
       },
     });
-    // console.log("req.userId:", req.userId);
-    // console.log("paymentIntent.metadata:", paymentIntent.metadata);
+  
 
     if (!paymentIntent.client_secret) {
       return res.status(500).json({ message: "Error creating payment intent" });
@@ -132,7 +131,6 @@ router.post(
           $push: { bookings: newBooking },
         }
       );
-      // console.log("After update, hotel.bookings:", hotel?.bookings);
       if (!hotel) {
         return res.status(400).json({ message: "hotel not found" });
       }

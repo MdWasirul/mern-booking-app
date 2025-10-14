@@ -28,8 +28,7 @@ const EditHotel = () => {
   const handleSave = (hotelFormData: FormData) => {
     mutate(hotelFormData);
   };
-  // console.log(hotel);
-  // if (!hotel) return null;
+ 
   if (isLoading) return <p>Loading........</p>;
   if (isError) return <p>Error Fetching Hotel</p>;
 
