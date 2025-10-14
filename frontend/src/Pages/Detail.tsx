@@ -15,7 +15,6 @@ const Detail = () => {
   if (!hotel) {
     return <></>;
   }
-  console.log("-----------JFGHFLGJLFKGJFK------------------", hotel);
   return (
     <div className="space-y-6">
       <div>
