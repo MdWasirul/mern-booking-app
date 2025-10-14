@@ -9,6 +9,7 @@ import authRoutes from "./routes/auth";
 import myHotelRoutes from "./routes/my-hotel";
 import { v2 as cloudinary } from "cloudinary";
 import hotelRoutes from "./routes/hotel";
+import bookingRoutes from "./routes/my-bookings";
 cloudinary.config({
   cloud_name: process.env.CLOUDINARY_CLOUD_NAME,
   api_key: process.env.CLOUDINARY_API_KEY,
@@ -37,6 +38,7 @@ app.use("/api/auth", authRoutes);
 app.use("/api/users", userRoutes);
 app.use("/api/my-hotels", myHotelRoutes);
 app.use("/api/hotels", hotelRoutes);
+app.use("/api/my-bookings", bookingRoutes);
 
 // Catch-all route for frontend routing
 app.get("*", (req: Request, res: Response) => {

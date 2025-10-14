@@ -30,7 +30,7 @@ router.get("/search", async (req: Request, res: Response) => {
       req.query.page ? req.query.page.toString() : "1"
     );
     const skip = (pageNumber - 1) * pageSize;
-    // ✅ Apply filters here
+    //  Apply filters here
     const hotels = await Hotel.find(query)
       .sort(sortOptions)
       .skip(skip)
@@ -51,6 +51,16 @@ router.get("/search", async (req: Request, res: Response) => {
   } catch (error) {
     console.log("error", error);
     res.status(500).json({ message: "Something went wrong" });
+  }
+});
+
+router.get("/", async (req: Request, res: Response) => {
+  try {
+    const hotels = await Hotel.find().sort("-lastUpdated");
+    res.json(hotels);
+  } catch (error) {
+    console.log("error", error);
+    res.status(500).json({ message: "Error fetching hotels" });
   }
 });
 
@@ -76,7 +86,6 @@ router.post(
         userId: req.userId,
       },
     });
-  
 
     if (!paymentIntent.client_secret) {
       return res.status(500).json({ message: "Error creating payment intent" });
