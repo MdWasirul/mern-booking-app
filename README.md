@@ -1,4 +1,5 @@
 # 🏨 Hotel Search Feature — Frontend & Backend Reference
+<img width="952" height="515" alt="image" src="https://github.com/user-attachments/assets/d7d99657-be1f-4b3e-a09f-47d1d7d0b9b0" />
 
 This document explains the complete flow of how **hotel filtering and search** works across the **React frontend** and **Express + MongoDB backend**.
 
