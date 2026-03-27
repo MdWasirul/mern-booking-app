@@ -2,6 +2,7 @@
 <img width="952" height="515" alt="image" src="https://github.com/user-attachments/assets/d7d99657-be1f-4b3e-a09f-47d1d7d0b9b0" />
 
 This document explains the complete flow of how **hotel filtering and search** works across the **React frontend** and **Express + MongoDB backend**.
+<img width="1747" height="840" alt="Screenshot 2026-03-27 213926" src="https://github.com/user-attachments/assets/726e78bc-92f8-4dbe-8538-332219dbbf07" />
 
 ---
 
